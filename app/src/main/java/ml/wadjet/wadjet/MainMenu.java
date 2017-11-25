@@ -24,8 +24,12 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Uri mail = Uri.parse("mailto:brightsvl@gmail.com");
-                    Intent callIntent = new Intent(Intent.ACTION_DIAL, mail);
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_EMAIL, "brightsvl@gmail.com");
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Hello developers!");
+                    intent.putExtra(Intent.EXTRA_TEXT, "I'm writing to...");
+                    startActivity(Intent.createChooser(intent, "Send Email"));
                 } catch (Exception e) {
                     Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();

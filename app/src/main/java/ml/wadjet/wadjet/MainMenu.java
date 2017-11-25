@@ -26,7 +26,7 @@ public class MainMenu extends AppCompatActivity {
                 try {
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("text/plain");
-                    intent.putExtra(Intent.EXTRA_EMAIL, "brightsvl@gmail.com");
+                    intent.putExtra(Intent.ACTION_SENDTO, "brightsvl@gmail.com");
                     intent.putExtra(Intent.EXTRA_SUBJECT, "Hello developers!");
                     intent.putExtra(Intent.EXTRA_TEXT, "I'm writing to...");
                     startActivity(Intent.createChooser(intent, "Send Email"));
